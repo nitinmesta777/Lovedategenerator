@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My First Love Starting Date ❤️</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    min-height:100vh;
+    background:linear-gradient(135deg,#ff758c,#ff7eb3);
+    color:#222;
+    display:flex;
+    justify-content:center;
+    padding:20px 10px;
+}
+
+.container{
+    width:100%;
+    max-width:480px;
+}
+
+/* AD BOXES */
+
+.ad-box{
+    width:100%;
+    min-height:90px;
+    background:#ffffffcc;
+    border:1px dashed #999;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#777;
+    font-size:13px;
+    margin-bottom:18px;
+}
+
+/* MAIN CARD */
+
+.card{
+    background:white;
+    border-radius:24px;
+    padding:25px 20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.18);
+    text-align:center;
+}
+
+.heart{
+    font-size:55px;
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.15);}
+}
+
+h1{
+    font-size:27px;
+    margin:8px 0;
+}
+
+.subtitle{
+    color:#777;
+    font-size:14px;
+    margin-bottom:25px;
+}
+
+label{
+    display:block;
+    text-align:left;
+    font-weight:bold;
+    margin:12px 0 6px;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    border:2px solid #eee;
+    border-radius:12px;
+    font-size:16px;
+    outline:none;
+}
+
+input:focus{
+    border-color:#ff5c8a;
+}
+
+button{
+    border:none;
+    border-radius:14px;
+    padding:15px;
+    width:100%;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.reveal{
+    margin-top:20px;
+    background:#ff3f78;
+    color:white;
+}
+
+.reveal:active{
+    transform:scale(.98);
+}
+
+/* RESULT */
+
+.result{
+    display:none;
+    margin-top:25px;
+    padding:20px;
+    border-radius:18px;
+    background:linear-gradient(135deg,#fff0f4,#ffe0e9);
+}
+
+.result h2{
+    color:#ff2868;
+    margin-bottom:12px;
+}
+
+.date{
+    font-size:27px;
+    font-weight:bold;
+    margin:12px 0;
+}
+
+.message{
+    line-height:1.5;
+    margin-top:10px;
+}
+
+.share{
+    margin-top:18px;
+    background:#25D366;
+    color:white;
+}
+
+/* ADGEM AREA */
+
+.reward-area{
+    display:none;
+    margin-top:20px;
+    padding:18px;
+    background:#fff8dc;
+    border-radius:16px;
+    border:1px solid #f0d77a;
+}
+
+.reward-area h3{
+    margin-bottom:8px;
+}
+
+.reward-area p{
+    font-size:13px;
+    color:#666;
+    margin-bottom:12px;
+}
+
+.offer-btn{
+    background:#111;
+    color:white;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    color:white;
+    font-size:12px;
+    margin-top:15px;
+    opacity:.9;
+}
+
+.small{
+    font-size:11px;
+    color:#888;
+    margin-top:12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- TOP BANNER AD -->
+    <div class="ad-box">
+        BANNER AD
+        <!-- Replace this area with your approved ad-network banner code -->
+    </div>
+
+
+    <div class="card">
+
+        <div class="heart">❤️</div>
+
+        <h1>My First Love Starting Date</h1>
+
+        <p class="subtitle">
+            Let's see when your love story supposedly begins 😂
+        </p>
+
+
+        <label for="name">Your Name</label>
+        <input
+            id="name"
+            type="text"
+            maxlength="30"
+            placeholder="Enter your name"
+        >
+
+
+        <label for="age">Your Age</label>
+        <input
+            id="age"
+            type="number"
+            min="13"
+            max="100"
+            placeholder="Enter your age"
+        >
+
+
+        <button class="reveal" onclick="startLoveCalculation()">
+            💘 REVEAL MY LOVE DATE
+        </button>
+
+
+        <!-- REWARDED / OFFER AREA -->
+        <div class="reward-area" id="rewardArea">
+
+            <h3>💰 One tiny step before the result</h3>
+
+
+            <!--
+                IMPORTANT:
+                Replace this button with your official AdGem
+                Web Offerwall / approved integration.
+
+                Example structure from AdGem documentation:
+
+                https://api.adgem.com/v1/wall?
+                appid=YOUR_APP_ID&
+                playerid=USER_ID
+            -->
+
+            <button class="offer-btn" onclick="openAdGem()">
+                🎁 OPEN REWARD EXPERIENCE
+            </button>
+
+
+        </div>
+
+
+        <!-- RESULT -->
+        <div class="result" id="result">
+
+            <h2>💘 YOUR LOVE STORY</h2>
+
+            <p id="resultName"></p>
+
+            <div class="date" id="loveDate"></div>
+
+            <p id="loveMessage" class="message"></p>
+
+            <button class="share" onclick="shareResult()">
+                📤 SHARE WITH FRIENDS
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- BOTTOM BANNER AD -->
+    <div class="ad-box" style="margin-top:18px;">
+        BANNER AD
+        <!-- Replace this area with your approved ad-network banner code -->
+    </div>
+
+
+    
+</div>
+
+
+<script>
+
+/* =========================================
+   LOVE DATE GENERATOR
+========================================= */
+
+function startLoveCalculation(){
+
+    const name =
+        document.getElementById("name").value.trim();
+
+    const age =
+        Number(document.getElementById("age").value);
+
+    if(!name){
+        alert("Bro, enter your name first 😂");
+        return;
+    }
+
+    if(!age || age < 13 || age > 100){
+        alert("Enter a valid age 😭");
+        return;
+    }
+
+
+    /*
+       In production:
+
+       1. Generate a unique player ID.
+       2. Open your approved AdGem experience.
+       3. Wait for your backend to receive/verify
+          the AdGem conversion.
+       4. Unlock the result.
+
+       For now, this demo displays the reward area.
+    */
+
+    document.getElementById("rewardArea").style.display="block";
+
+    document.getElementById("rewardArea")
+        .scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+        });
+}
+
+
+/* =========================================
+   ADGEM PLACEHOLDER
+========================================= */
+
+function openAdGem(){
+
+    /*
+       IMPORTANT:
+
+       Replace this function with the actual
+       AdGem Web Offerwall URL supplied in
+       your AdGem dashboard.
+
+       DO NOT put an AdGem secret/postback key
+       inside this JavaScript.
+
+       Example:
+
+       const playerId = createPlayerId();
+
+       const url =
+       "https://api.adgem.com/v1/wall" +
+       "?appid=YOUR_APP_ID" +
+       "&playerid=" + playerId;
+
+       window.open(url,"_blank");
+
+       Your server should receive and verify
+       the AdGem postback before treating an
+       offer as completed.
+    */
+
+    
+
+    /*
+       DEMO ONLY:
+       Remove this line when real reward verification
+       is implemented.
+    */
+
+    revealResult();
+}
+
+
+/* =========================================
+   RESULT GENERATOR
+========================================= */
+
+function revealResult(){
+
+    const name =
+        document.getElementById("name").value.trim();
+
+    const age =
+        Number(document.getElementById("age").value);
+
+
+    /*
+       Deterministic-ish result based on
+       name + age.
+
+       Same person gets the same date
+       instead of a new random date every click.
+    */
+
+    let hash = 0;
+
+    const text = name.toLowerCase() + age;
+
+    for(let i=0;i<text.length;i++){
+
+        hash =
+            ((hash << 5) - hash) +
+            text.charCodeAt(i);
+
+        hash |= 0;
+    }
+
+    hash = Math.abs(hash);
+
+
+    const startYear =
+        Math.max(
+            new Date().getFullYear(),
+            2026
+        );
+
+    const year =
+        startYear + (hash % 5);
+
+    const month =
+        (hash % 12);
+
+    const daysInMonth =
+        new Date(year,month+1,0).getDate();
+
+    const day =
+        1 + (hash % daysInMonth);
+
+
+    const date =
+        new Date(year,month,day);
+
+
+    const formattedDate =
+        date.toLocaleDateString(
+            "en-IN",
+            {
+                day:"numeric",
+                month:"long",
+                year:"numeric"
+            }
+        );
+
+
+    const messages = [
+
+        "Your love story is loading... please be patient 😂",
+
+        "Bro, your future is looking suspiciously romantic 👀",
+
+        "Someone might enter your life. Or you might just stay single. 💀",
+
+        "Your parents may discover it before you do. 😭",
+
+        "Cupid has received your application. 😂",
+
+        "Relationship department says: Under Review 🗿",
+
+        "The universe has officially entered your case file. ❤️",
+
+        "From here you'll get your genuine life partner❤️"
+
+    ];
+
+
+    const message =
+        messages[hash % messages.length];
+
+
+    document.getElementById("resultName")
+        .textContent =
+        name.toUpperCase() +
+        ", YOUR FIRST LOVE STARTS ON:";
+
+
+    document.getElementById("loveDate")
+        .textContent =
+        "📅 " + formattedDate;
+
+
+    document.getElementById("loveMessage")
+        .textContent =
+        message;
+
+
+    document.getElementById("result")
+        .style.display="block";
+
+
+    document.getElementById("result")
+        .scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+        });
+}
+
+
+/* =========================================
+   WHATSAPP / SHARE
+========================================= */
+
+function shareResult(){
+
+    const name =
+        document.getElementById("name").value.trim();
+
+    const date =
+        document.getElementById("loveDate").textContent;
+
+    const text =
+`❤️ MY FIRST LOVE STARTING DATE ❤️
+
+${name}'s first love supposedly starts on:
+
+${date}
+
+😂 Try yours:
+${window.location.href}`;
+
+    
+    if(navigator.share){
+
+        navigator.share({
+            title:"My First Love Starting Date ❤️",
+            text:text
+        });
+
+    }else{
+
+        const whatsapp =
+            "https://wa.me/?text=" +
+            encodeURIComponent(text);
+
+        window.open(
+            whatsapp,
+            "_blank"
+        );
+    }
+}
+
+</script>
+
+</body>
+</html>
