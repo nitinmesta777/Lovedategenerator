@@ -28,11 +28,11 @@ body{
     max-width:480px;
 }
 
-/* AD BOXES */
+/* AD BOX */
 
 .ad-box{
     width:100%;
-    min-height:90px;
+    min-height:70px;
     background:#ffffffcc;
     border:1px dashed #999;
     border-radius:12px;
@@ -42,6 +42,7 @@ body{
     color:#777;
     font-size:13px;
     margin-bottom:18px;
+    overflow:hidden;
 }
 
 /* MAIN CARD */
@@ -147,30 +148,20 @@ button{
     color:white;
 }
 
-/* ADGEM AREA */
+/* SMARTLINK */
 
-.reward-area{
-    display:none;
-    margin-top:20px;
-    padding:18px;
-    background:#fff8dc;
-    border-radius:16px;
-    border:1px solid #f0d77a;
-}
-
-.reward-area h3{
-    margin-bottom:8px;
-}
-
-.reward-area p{
-    font-size:13px;
-    color:#666;
-    margin-bottom:12px;
-}
-
-.offer-btn{
+.smartlink{
+    display:block;
+    margin:18px auto;
+    padding:13px 18px;
+    width:90%;
+    max-width:350px;
     background:#111;
     color:white;
+    text-decoration:none;
+    border-radius:12px;
+    font-size:14px;
+    font-weight:bold;
 }
 
 /* FOOTER */
@@ -182,12 +173,6 @@ button{
     margin-top:15px;
     opacity:.9;
 }
-
-.small{
-    font-size:11px;
-    color:#888;
-    margin-top:12px;
-}
 </style>
 </head>
 
@@ -195,12 +180,30 @@ button{
 
 <div class="container">
 
-    <!-- TOP BANNER AD -->
+    <!-- =========================
+         TOP ADSTERRA BANNER
+    ========================== -->
+
     <div class="ad-box">
-        BANNER AD
-        <!-- Replace this area with your approved ad-network banner code -->
+
+        <script>
+          atOptions = {
+            'key' : 'b4d916e03ded00d839948dfd823a5994',
+            'format' : 'iframe',
+            'height' : 50,
+            'width' : 320,
+            'params' : {}
+          };
+        </script>
+
+        <script src="https://bauval.org/22/b4d916e03ded00d839948dfd823a5994"></script>
+
     </div>
 
+
+    <!-- =========================
+         MAIN CARD
+    ========================== -->
 
     <div class="card">
 
@@ -214,6 +217,7 @@ button{
 
 
         <label for="name">Your Name</label>
+
         <input
             id="name"
             type="text"
@@ -223,6 +227,7 @@ button{
 
 
         <label for="age">Your Age</label>
+
         <input
             id="age"
             type="number"
@@ -232,50 +237,57 @@ button{
         >
 
 
-        <button class="reveal" onclick="startLoveCalculation()">
+        <button
+            class="reveal"
+            onclick="revealResult()">
+
             💘 REVEAL MY LOVE DATE
+
         </button>
 
 
-        <!-- REWARDED / OFFER AREA -->
-        <div class="reward-area" id="rewardArea">
+        <!-- =========================
+             RESULT
+        ========================== -->
 
-            <h3>💰 One tiny step before the result</h3>
-
-
-            <!--
-                IMPORTANT:
-                Replace this button with your official AdGem
-                Web Offerwall / approved integration.
-
-                Example structure from AdGem documentation:
-
-                https://api.adgem.com/v1/wall?
-                appid=YOUR_APP_ID&
-                playerid=USER_ID
-            -->
-
-            <button class="offer-btn" onclick="openAdGem()">
-                🎁 OPEN REWARD EXPERIENCE
-            </button>
-
-
-        </div>
-
-
-        <!-- RESULT -->
         <div class="result" id="result">
 
             <h2>💘 YOUR LOVE STORY</h2>
 
             <p id="resultName"></p>
 
-            <div class="date" id="loveDate"></div>
+            <div
+                class="date"
+                id="loveDate">
+            </div>
 
-            <p id="loveMessage" class="message"></p>
+            <p
+                id="loveMessage"
+                class="message">
+            </p>
 
-            <button class="share" onclick="shareResult()">
+
+            <!-- SMARTLINK -->
+
+            <a
+                class="smartlink"
+                href="https://araplhn.org/4/b422f04b9e6b4066de21bcc0f0c0fa0a"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                🔗 Explore More
+
+            </a>
+
+
+            <!-- SHARE -->
+
+            <button
+                class="share"
+                onclick="shareResult()">
+
                 📤 SHARE WITH FRIENDS
+
             </button>
 
         </div>
@@ -283,14 +295,35 @@ button{
     </div>
 
 
-    <!-- BOTTOM BANNER AD -->
-    <div class="ad-box" style="margin-top:18px;">
-        BANNER AD
-        <!-- Replace this area with your approved ad-network banner code -->
+    <!-- =========================
+         BOTTOM ADSTERRA BANNER
+    ========================== -->
+
+    <div
+        class="ad-box"
+        style="margin-top:18px;">
+
+        <script>
+          atOptions = {
+            'key' : 'b4d916e03ded00d839948dfd823a5994',
+            'format' : 'iframe',
+            'height' : 50,
+            'width' : 320,
+            'params' : {}
+          };
+        </script>
+
+        <script src="https://bauval.org/22/b4d916e03ded00d839948dfd823a5994"></script>
+
     </div>
 
 
-    
+    <div class="footer">
+
+        ❤️ Just for fun — not a real prediction 😂
+
+    </div>
+
 </div>
 
 
@@ -300,117 +333,51 @@ button{
    LOVE DATE GENERATOR
 ========================================= */
 
-function startLoveCalculation(){
-
-    const name =
-        document.getElementById("name").value.trim();
-
-    const age =
-        Number(document.getElementById("age").value);
-
-    if(!name){
-        alert("Bro, enter your name first 😂");
-        return;
-    }
-
-    if(!age || age < 13 || age > 100){
-        alert("Enter a valid age 😭");
-        return;
-    }
-
-
-    /*
-       In production:
-
-       1. Generate a unique player ID.
-       2. Open your approved AdGem experience.
-       3. Wait for your backend to receive/verify
-          the AdGem conversion.
-       4. Unlock the result.
-
-       For now, this demo displays the reward area.
-    */
-
-    document.getElementById("rewardArea").style.display="block";
-
-    document.getElementById("rewardArea")
-        .scrollIntoView({
-            behavior:"smooth",
-            block:"center"
-        });
-}
-
-
-/* =========================================
-   ADGEM PLACEHOLDER
-========================================= */
-
-function openAdGem(){
-
-    /*
-       IMPORTANT:
-
-       Replace this function with the actual
-       AdGem Web Offerwall URL supplied in
-       your AdGem dashboard.
-
-       DO NOT put an AdGem secret/postback key
-       inside this JavaScript.
-
-       Example:
-
-       const playerId = createPlayerId();
-
-       const url =
-       "https://api.adgem.com/v1/wall" +
-       "?appid=YOUR_APP_ID" +
-       "&playerid=" + playerId;
-
-       window.open(url,"_blank");
-
-       Your server should receive and verify
-       the AdGem postback before treating an
-       offer as completed.
-    */
-
-    
-
-    /*
-       DEMO ONLY:
-       Remove this line when real reward verification
-       is implemented.
-    */
-
-    revealResult();
-}
-
-
-/* =========================================
-   RESULT GENERATOR
-========================================= */
-
 function revealResult(){
 
     const name =
-        document.getElementById("name").value.trim();
+        document
+        .getElementById("name")
+        .value
+        .trim();
 
     const age =
-        Number(document.getElementById("age").value);
+        Number(
+            document
+            .getElementById("age")
+            .value
+        );
 
 
-    /*
-       Deterministic-ish result based on
-       name + age.
+    if(!name){
 
-       Same person gets the same date
-       instead of a new random date every click.
-    */
+        alert("Bro, enter your name first 😂");
+
+        return;
+    }
+
+
+    if(!age || age < 13 || age > 100){
+
+        alert("Enter a valid age 😭");
+
+        return;
+    }
+
+
+    /* CREATE DETERMINISTIC RESULT */
 
     let hash = 0;
 
-    const text = name.toLowerCase() + age;
+    const text =
+        name.toLowerCase() + age;
 
-    for(let i=0;i<text.length;i++){
+
+    for(
+        let i = 0;
+        i < text.length;
+        i++
+    ){
 
         hash =
             ((hash << 5) - hash) +
@@ -418,6 +385,7 @@ function revealResult(){
 
         hash |= 0;
     }
+
 
     hash = Math.abs(hash);
 
@@ -428,21 +396,33 @@ function revealResult(){
             2026
         );
 
+
     const year =
         startYear + (hash % 5);
 
+
     const month =
-        (hash % 12);
+        hash % 12;
+
 
     const daysInMonth =
-        new Date(year,month+1,0).getDate();
+        new Date(
+            year,
+            month + 1,
+            0
+        ).getDate();
+
 
     const day =
         1 + (hash % daysInMonth);
 
 
     const date =
-        new Date(year,month,day);
+        new Date(
+            year,
+            month,
+            day
+        );
 
 
     const formattedDate =
@@ -472,36 +452,44 @@ function revealResult(){
 
         "The universe has officially entered your case file. ❤️",
 
-        "From here you'll get your genuine life partner❤️"
+        "Your future partner might already be somewhere nearby 👀"
 
     ];
 
 
     const message =
-        messages[hash % messages.length];
+        messages[
+            hash % messages.length
+        ];
 
 
-    document.getElementById("resultName")
+    document
+        .getElementById("resultName")
         .textContent =
         name.toUpperCase() +
         ", YOUR FIRST LOVE STARTS ON:";
 
 
-    document.getElementById("loveDate")
+    document
+        .getElementById("loveDate")
         .textContent =
         "📅 " + formattedDate;
 
 
-    document.getElementById("loveMessage")
+    document
+        .getElementById("loveMessage")
         .textContent =
         message;
 
 
-    document.getElementById("result")
-        .style.display="block";
+    document
+        .getElementById("result")
+        .style.display =
+        "block";
 
 
-    document.getElementById("result")
+    document
+        .getElementById("result")
         .scrollIntoView({
             behavior:"smooth",
             block:"center"
@@ -516,10 +504,17 @@ function revealResult(){
 function shareResult(){
 
     const name =
-        document.getElementById("name").value.trim();
+        document
+        .getElementById("name")
+        .value
+        .trim();
+
 
     const date =
-        document.getElementById("loveDate").textContent;
+        document
+        .getElementById("loveDate")
+        .textContent;
+
 
     const text =
 `❤️ MY FIRST LOVE STARTING DATE ❤️
@@ -531,25 +526,33 @@ ${date}
 😂 Try yours:
 ${window.location.href}`;
 
-    
+
     if(navigator.share){
 
         navigator.share({
-            title:"My First Love Starting Date ❤️",
+
+            title:
+            "My First Love Starting Date ❤️",
+
             text:text
+
         });
 
-    }else{
+    }
+
+    else{
 
         const whatsapp =
             "https://wa.me/?text=" +
             encodeURIComponent(text);
+
 
         window.open(
             whatsapp,
             "_blank"
         );
     }
+
 }
 
 </script>
